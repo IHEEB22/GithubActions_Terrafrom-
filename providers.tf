@@ -4,12 +4,12 @@ terraform {
     resource_group_name  = "kopicloud-tfstate-rg"
     storage_account_name = "kopicloudiactest"
     container_name       = "core-tfstate"
-    key                  = "actions.tfstate"
+    key                  = "terraform.tfstate"
   }
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "~>3.2"
+      version = "~>2.0"
     }
     random = {
       source  = "hashicorp/random"
