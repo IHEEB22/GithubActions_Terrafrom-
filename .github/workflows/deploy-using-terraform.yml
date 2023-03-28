@@ -35,7 +35,7 @@ jobs:
         uses: hashicorp/setup-terraform@v1
 
       - name: Terraform Init
-        run: terraform init
+        run:  terraform init -upgrade 
         env:
           ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID}}
           ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID}}
