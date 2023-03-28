@@ -6,26 +6,24 @@ on:
       - main
   workflow_dispatch:
 
-env:
-  SUBSCRIPTION_ID: secretes.ARM_SUBSCRIPTION_ID
-  CLIENT_ID: secretes.ARM_CLIENT_ID
-  CLIENT_SECRET: secrets.ARM_CLIENT_SECRET
-  TENANT_ID: secrets.ARM_TENANT_ID
+
 
 permissions:
   contents: read
 
 jobs:
   deploy:
-    
+  
     env:
-      ARM_SUBSCRIPTION_ID: ${{ env.ARM_SUBSCRIPTION_ID }}
-      ARM_CLIENT_ID: ${{ env.ARM_CLIENT_ID }}
-      ARM_CLIENT_SECRET: ${{ env.ARM_CLIENT_SECRET }}
-      ARM_TENANT_ID: ${{ env.ARM_TENANT_ID }}
+      ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+      ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+      ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+      ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}    
+
     
     runs-on: ubuntu-latest
-    
+    environment: production
+
     defaults:
       run:
         shell: bash
